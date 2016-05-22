@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Florian Finke <florian@finke.email>
 
-ENV PYTHON_VERSIONS 2.7.11 3.1.5 3.2.6 3.3.6 3.4.3 3.5.1
+ENV PYENV_VERSION 2.7.11 3.1.5 3.2.6 3.3.6 3.4.3 3.5.1
 
 ENV PYENV_ROOT /pyenv/
 ENV PATH /pyenv/shims:/pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -33,4 +33,5 @@ RUN while read line; do \
     pyenv install $line || exit 1 ;\
     done < $PYENV_REQUIRED_PYTHON
 
-RUN pyenv local $PYTHON_VERSIONS
+RUN pyenv global $PYENV_VERSION
+RUN pyenv local $PYENV_VERSION
