@@ -16,12 +16,12 @@ RUN apt-get install --no-install-recommends -y build-essential \
     libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev \
     python-pip libjpeg-dev zlib1g-dev python-imaging libxml2-dev \
     libxslt1-dev python-setuptools python-lxml openssh-client \
-    curl
+    curl rsync
 
 RUN pip install --upgrade setuptools pip tox tox-pyenv fabric
 
 RUN mkdir -p ~/.ssh
-RUN echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+RUN echo "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash
 
