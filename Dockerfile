@@ -13,7 +13,7 @@ ENV PYENV_REQUIRED_PYTHON /pyenv-config/$PYENV_REQUIRED_PYTHON_BASENAME
 RUN apt-get update -y
 RUN apt-get install --no-install-recommends -y build-essential \
     python2.7 python2.7-dev git make \
-    libssl-dev lbfontconfig ibffi-dev libbz2-dev libreadline-dev libsqlite3-dev \
+    libssl-dev libfontconfig ibffi-dev libbz2-dev libreadline-dev libsqlite3-dev \
     python-pip libjpeg-dev zlib1g-dev python-imaging libxml2-dev \
     libxslt1-dev python-setuptools python-lxml openssh-client \
     curl rsync ruby-dev rubygems
