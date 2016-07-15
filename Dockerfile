@@ -10,16 +10,18 @@ ENV PYENV_INSTALLER_ROOT /pyenv-installer/
 ENV PYENV_REQUIRED_PYTHON_BASENAME python_versions.txt
 ENV PYENV_REQUIRED_PYTHON /pyenv-config/$PYENV_REQUIRED_PYTHON_BASENAME
 
-RUN apt-get update -y
-RUN apt-get install --no-install-recommends -y build-essential \
+RUN apt-get update -q -y
+RUN apt-get install --no-install-recommends --fix-missing -y build-essential \
     python2.7 python2.7-dev git make \
     libssl-dev libfontconfig libffi-dev libbz2-dev libreadline-dev libsqlite3-dev \
     python-pip libjpeg-dev zlib1g-dev python-imaging libxml2-dev \
-    libxslt1-dev python-setuptools python-lxml openssh-client \
+    libxslt1-dev python-lxml openssh-client \
     curl rsync ruby-dev rubygems
 
 RUN gem install compass
-RUN pip install --upgrade setuptools pip tox tox-pyenv fabric
+RUN pip install --upgrade setuptools
+RUN pip install --upgrade pip
+RUN pip install --upgrade tox tox-pyenv fabric
 
 RUN mkdir -p ~/.ssh
 RUN echo "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
