@@ -31,7 +31,7 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash
 RUN apt-get -y install nodejs
 RUN git clone https://github.com/yyuu/pyenv.git $PYENV_ROOT
 
-RUN npm install -g coffee-script node-gyp
+RUN npm install -g coffee-script node-gyp ttf2woff2 svgicons2svgfont
 
 COPY python_versions.txt $PYENV_REQUIRED_PYTHON
 RUN while read line; do \
