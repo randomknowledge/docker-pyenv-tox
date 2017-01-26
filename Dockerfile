@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Florian Finke <florian@finke.email>
 
-ENV PYTHON_VERSIONS 2.7.11 3.1.5 3.2.6 3.3.6 3.4.3 3.5.1
+ENV PYTHON_VERSIONS 2.7.13 3.1.5 3.2.6 3.3.6 3.4.5 3.5.2 3.6.0
 
 ENV PYENV_ROOT /pyenv/
 ENV PATH /pyenv/shims:/pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -12,11 +12,20 @@ ENV PYENV_REQUIRED_PYTHON /pyenv-config/$PYENV_REQUIRED_PYTHON_BASENAME
 
 RUN apt-get update -q -y
 RUN apt-get install --no-install-recommends --fix-missing -y build-essential \
-    python2.7 python2.7-dev git make \
+    python2.7 python2.7-dev git make locales \
     libssl-dev libfontconfig libffi-dev libbz2-dev libreadline-dev libsqlite3-dev \
     python-pip libjpeg-dev zlib1g-dev python-imaging libxml2-dev \
     libxslt1-dev python-lxml openssh-client \
-    curl rsync ruby-dev rubygems
+    curl rsync ruby-dev rubygems \
+    && apt-get autoremove -y \
+        && apt-get clean all \
+        && rm -rf /var/lib/apt/lists/*
+
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+        && locale-gen \
+        && update-locale LANG=en_US.UTF-8
+
+ENV LANG=en_US.UTF-8
 
 RUN gem install compass
 RUN pip install --upgrade setuptools
