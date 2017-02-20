@@ -30,7 +30,7 @@ ENV LANG=en_US.UTF-8
 RUN gem install compass
 RUN pip install --upgrade setuptools
 RUN pip install --upgrade pip
-RUN pip install --upgrade tox tox-pyenv fabric
+RUN pip install --upgrade tox tox-pyenv fabric docker-fabric
 
 RUN mkdir -p ~/.ssh
 RUN echo "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
