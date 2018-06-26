@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Florian Finke <florian@finke.email>
 
-ENV PYTHON_VERSIONS 2.7.13 2.7.14 3.1.5 3.2.6 3.3.6 3.4.5 3.4.6 3.5.2 3.5.3 3.5.4 3.6.1 3.6.3 3.6.4 3.6.5
+ENV PYTHON_VERSIONS 2.7.13 2.7.14 3.1.5 3.2.6 3.3.6 3.4.5 3.4.6 3.5.2 3.5.3 3.5.4 3.5.5 3.6.1 3.6.3 3.6.4 3.6.5
 
 ENV PYENV_ROOT /pyenv/
 ENV PATH /pyenv/shims:/pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -30,7 +30,7 @@ ENV LANG=en_US.UTF-8
 RUN gem install compass
 RUN pip install --upgrade setuptools
 RUN pip install --upgrade pip
-RUN pip install --upgrade tox tox-pyenv fabric docker-fabric
+RUN pip install --upgrade tox tox-pyenv "fabric<2.0" docker-fabric
 
 RUN mkdir -p ~/.ssh
 RUN echo "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
