@@ -4,7 +4,7 @@ I use this for continuous integration with Gitlab CI, but it should be compatibl
 
 ## Example .gitlab-ci.yml
 
-```
+```yml
 image: "randomknowledge/docker-pyenv-tox"
 
 before_script:
