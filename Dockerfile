@@ -27,10 +27,9 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
 
 ENV LANG=en_US.UTF-8
 
-RUN gem install compass
 RUN pip install --upgrade setuptools
 RUN pip install --upgrade pip
-RUN pip install --upgrade tox tox-pyenv "fabric<2.0" docker-fabric
+RUN pip install --upgrade tox tox-pyenv "fabric<2.0" docker-fabric awscli
 
 RUN mkdir -p ~/.ssh
 RUN echo "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
@@ -38,8 +37,7 @@ RUN echo "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
 RUN apt-get -y install nodejs
 
-RUN npm install -g npm@latest
-RUN npm install -g node-gyp ttf2woff2 svgicons2svgfont yarn
+RUN npm install -g npm@latest yarn
 
 RUN git clone https://github.com/yyuu/pyenv.git $PYENV_ROOT
 
