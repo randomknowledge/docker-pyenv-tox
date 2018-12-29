@@ -29,7 +29,7 @@ ENV LANG=en_US.UTF-8
 
 RUN pip install --upgrade setuptools
 RUN pip install --upgrade pip
-RUN pip install --upgrade tox tox-pyenv "fabric<2.0" docker-fabric awscli
+RUN pip install --upgrade tox tox-pyenv "fabric<2.0" docker-fabric awscli awsebcli
 
 RUN mkdir -p ~/.ssh
 RUN echo "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
