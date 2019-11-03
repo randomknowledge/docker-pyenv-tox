@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Florian Finke <florian@finke.email>
 
-ENV PYTHON_VERSIONS 2.7.13 2.7.14 2.7.15 2.7.16 3.1.5 3.2.6 3.3.6 3.4.5 3.4.6 3.5.2 3.5.3 3.5.4 3.5.5 3.6.1 3.6.3 3.6.4 3.6.5 3.6.6 3.6.7 3.7.0 3.7.1 3.7.2 3.7.3
+ENV PYTHON_VERSIONS 2.7.13 2.7.14 2.7.15 2.7.16 3.1.5 3.2.6 3.3.6 3.4.5 3.4.6 3.5.2 3.5.3 3.5.4 3.5.5 3.6.1 3.6.3 3.6.4 3.6.5 3.6.6 3.6.7 3.7.0 3.7.1 3.7.2 3.7.3 3.7.4 3.7.5 3.8.0
 
 ENV PYENV_ROOT /pyenv/
 ENV PATH /pyenv/shims:/pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -39,7 +39,7 @@ RUN apt-get -y install nodejs
 
 RUN npm install -g npm@latest yarn
 
-RUN git clone https://github.com/yyuu/pyenv.git $PYENV_ROOT
+RUN git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
 
 COPY python_versions.txt $PYENV_REQUIRED_PYTHON
 RUN while read line; do \
