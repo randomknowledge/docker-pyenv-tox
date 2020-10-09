@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 MAINTAINER Florian Finke <florian@finke.email>
 
@@ -14,8 +14,8 @@ ENV PYENV_REQUIRED_PYTHON /pyenv-config/$PYENV_REQUIRED_PYTHON_BASENAME
 
 RUN apt-get update -q -y
 RUN apt-get install --no-install-recommends --fix-missing -y build-essential \
-    python3-dev python3-pip git make locales \
-    libssl-dev libfontconfig libffi-dev libbz2-dev libreadline-dev libsqlite3-dev \
+    python3-dev python3-pip git make locales libssl1.0-dev \
+    libfontconfig libffi-dev libbz2-dev libreadline-dev libsqlite3-dev \
     libjpeg-dev zlib1g-dev python3-pil libxml2-dev \
     libxslt1-dev python3-lxml openssh-client \
     curl rsync ruby-dev rubygems \
