@@ -28,6 +28,8 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
         && update-locale LANG=en_US.UTF-8
 
 ENV LANG=en_US.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV PYTHONIOENCODING=UTF-8
 
 RUN pip3 install --upgrade setuptools
 RUN pip3 install --upgrade tox tox-pyenv awscli awsebcli
